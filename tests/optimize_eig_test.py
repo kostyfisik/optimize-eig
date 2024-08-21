@@ -1,22 +1,19 @@
-"""This file contains examples of how to write tests using pytest!
-
-Some good practices for writting great Python tests:
-
-Source: https://www.nerdwallet.com/blog/engineering/5-pytest-best-practices/
-
-  *  Prefer mocker over mock
-  *  Parametrize the same behavior, have different tests for different behaviors
-  *  Don't modify fixture values in other fixtures
-  *  Prefer responses over mocking outbound HTTP requests
-  *  Prefer tmpdir over global test artifacts
-
-"""
+import numpy as np
 
 from optimize_eig import optimize_eig as m
 
 
-def test_kappa() -> None:
-    m.kappa(1, 1)
+def test_build() -> None:
+    for size in [3, 5]:
+        vals = np.random.uniform(0, 1, size * (size - 1) // 2)  # noqa: NPY002
+        arr = m.build_matrix(size=size, omega=1, gamma=1, wavenumber=1, vals=vals)
+        for i in range(size):
+            assert arr[0, i] == arr[i, 0]
+            assert arr[i, size - 1] == arr[size - 1, i]
+            assert arr[0, 0] == arr[i, i]
+    #     np.set_printoptions(precision=3, suppress=True)
+    #     print(arr)
+    # assert False
 
 
 # @pytest.mark.parametrize(
