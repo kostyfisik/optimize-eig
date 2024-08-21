@@ -1,0 +1,47 @@
+site_name: optimize-eig
+site_url: https://kostyfisik.github.io/optimize-eig
+site_description: optimize eig
+site_author: Konstantin Ladutenko
+site_dir: html
+repo_name: kostyfisik/optimize-eig
+repo_url: https://github.com/kostyfisik/optimize-eig
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_submodules: true
+            show_if_no_docstring: true
+            modernize_annotations: true
+            separate_signature: true
+            docstring_section_style: list
+  - awesome-pages
+  - gen-files:
+      scripts:
+        - gen_pages.py
+
+theme:
+  name: material
+  palette:
+  - media: '(prefers-color-scheme: light)'
+    scheme: default
+    primary: blue
+    accent: amber
+  atures:
+  - search.suggest
+  - search.highlight
+  - content.tabs.link
+  icon:
+    repo: fontawesome/brands/github-alt
+  #logo: img/logo.svg
+  #favicon: img/favicon.png
+  language: en
+
+nav:
+  - index.md
+  - ... | glob=readme.md
+  - reference.md
+  - ... | regex=scenarios/.+.md
+  - tests.md
