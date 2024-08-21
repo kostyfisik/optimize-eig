@@ -47,6 +47,7 @@ ignore = [
   "D105",   #Missing docstring in magic method
   "D107",   #Missing docstring in `__init__`
   "N802",   #    Function name should be lowercase 
+  "ERA001", # Found commented-out code
 ]
 select = [
   "A",

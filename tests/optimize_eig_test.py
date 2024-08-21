@@ -12,10 +12,6 @@ Source: https://www.nerdwallet.com/blog/engineering/5-pytest-best-practices/
 
 """
 
-from typing import Self
-
-import pytest
-
 from optimize_eig import optimize_eig as m
 
 

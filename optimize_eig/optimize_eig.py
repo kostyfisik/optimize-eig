@@ -1,7 +1,7 @@
 """Module Docstring."""
 
-import logging
 import cmath as c
+import logging
 
 # TODO(Konstantin Ladutenko): Check how to write todos!
 # https://docs.astral.sh/ruff/rules/missing-todo-link/
