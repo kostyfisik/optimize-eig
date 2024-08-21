@@ -1,6 +1,7 @@
 """Module Docstring."""
 
 import logging
+import cmath as c
 
 # TODO(Konstantin Ladutenko): Check how to write todos!
 # https://docs.astral.sh/ruff/rules/missing-todo-link/
@@ -9,36 +10,40 @@ logger = logging.getLogger("optimize_eig")
 logger.info("This is a {word}", extra={"word": "Log"})
 
 
-class Calculator:
-    """Class for simple calculator operations."""
+def kappa(wavenumber: float, dist: float) -> complex:
+    return 1 / dist * c.exp(1j * wavenumber * dist)
 
-    @staticmethod
-    def divide(a: float, b: float) -> float:
-        """Divide a by b.
 
-        Args:
-            a (float): Dividend.
-            b (float): Divisor.
+# class Calculator:
+#     """Class for simple calculator operations."""
 
-        Returns:
-            float: The result of the division.
+#     @staticmethod
+#     def divide(a: float, b: float) -> float:
+#         """Divide a by b.
 
-        Raises:
-            ZeroDivisionError: if b is 0.
-            TypeError: if a or b are not float numbers.
+#         Args:
+#             a (float): Dividend.
+#             b (float): Divisor.
 
-        Examples:
-            You can run this function as following.
+#         Returns:
+#             float: The result of the division.
 
-            >>> Calculator.divide(2,1)
-            2.0
+#         Raises:
+#             ZeroDivisionError: if b is 0.
+#             TypeError: if a or b are not float numbers.
 
-        """
-        if b == 0:
-            raise ZeroDivisionError
-        elif type(a) not in (float, int) or type(b) not in (float, int):
-            raise TypeError
-        return a / b
+#         Examples:
+#             You can run this function as following.
+
+#             >>> Calculator.divide(2,1)
+#             2.0
+
+#         """
+#         if b == 0:
+#             raise ZeroDivisionError
+#         elif type(a) not in (float, int) or type(b) not in (float, int):
+#             raise TypeError
+#         return a / b
 
 
 if __name__ == "__main__":
